@@ -11,3 +11,22 @@ input[type=number]::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+/* Themes */
+:root {
+  --color-text-base: 255, 255, 255;
+  --color-text-inverted: 79, 70, 229;
+  --color-fill: 0, 0, 0;
+  --color-button-accent: 255, 255, 255;
+  --color-button-accent-hover: 238, 242, 255;
+  --color-button-muted: 99, 102, 241;
+}
+
+.theme-light {
+  --color-text-base: 0,0,0;
+  --color-fill: 255, 255, 255;
+}
+.theme-party {
+  --color-text-base: 255, 219, 88;
+  --color-fill: 140, 3, 252;
+}
