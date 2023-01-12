@@ -9,7 +9,7 @@ function Calculator() {
 
   const updateDisplayVal = (value) => {
     const lastVal = displayVal.slice(-1);
-    const lastValArrItem = isDisplayValEqualToOne ? lastVal : displayVal.split(' ').slice(-1)[0];
+    const lastValArrItem = isDisplayValEqualToOne ? displayVal : displayVal.split(' ').slice(-1)[0];
     const isOperator = operators.includes(value);
     const isLastValOperator = operators.includes(lastVal);
 
