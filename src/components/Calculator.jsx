@@ -1,4 +1,5 @@
 import { useState } from "react";
+import calculate from "../utils/calculate";
 
 function Calculator() {
   const [displayVal, setDisplayVal] = useState("");
@@ -36,50 +37,16 @@ function Calculator() {
     setAnswer('');
   }
 
-  const calculate = (array) => {
+  const calculateVals = () => {
 
     if (isDisplayValEqualToOne) {
       return;
     }
 
-    const displayValArr = array || displayVal.split(' ');
-
-    if (displayValArr.length > 1) {
-      const beforeVal = (index) => Number(displayValArr[index - 1]);
-      const afterVal = (index) => Number(displayValArr[index + 1]);
-
-      if (displayValArr.includes('/')) {
-        const divideIndex = displayValArr.indexOf('/');
-        const dividedVal = beforeVal(divideIndex) / afterVal(divideIndex);
-
-        displayValArr.splice((divideIndex - 1), 3, dividedVal);
-      }
-
-      if (displayValArr.includes('*')) {
-        const multiplyIndex = displayValArr.indexOf('*');
-        const multipliedVal = beforeVal(multiplyIndex) * afterVal(multiplyIndex);
-        displayValArr.splice((multiplyIndex - 1), 3, multipliedVal);
-      }
-
-      if (displayValArr.includes('+')) {
-        const addIndex = displayValArr.indexOf('+');
-        const addedVal = beforeVal(addIndex) + afterVal(addIndex);
-
-        displayValArr.splice((addIndex - 1), 3, addedVal);
-      }
-
-      if (displayValArr.includes('-')) {
-        const subtractIndex = displayValArr.indexOf('-');
-        const subtractVal = beforeVal(subtractIndex) - afterVal(subtractIndex);
-
-        displayValArr.splice((subtractIndex - 1), 3, subtractVal);
-      }
-
-      calculate(displayValArr);
-    }
+    const calculatedValue = calculate(false, displayVal);
 
     setAnswer(displayVal);
-    setDisplayVal(displayValArr);
+    setDisplayVal(calculatedValue);
   }
 
   return (
@@ -141,7 +108,7 @@ function Calculator() {
         <button className="col-span-2 bg-slate-500 rounded-sm border-b-4 border-slate-600 font-bold uppercase text-white" onClick={() => reset()}>
           reset
         </button>
-        <button className="col-span-2 bg-red-600 rounded-sm border-b-4 border-red-900 font-bold uppercase text-white" onClick={() => calculate()}>
+        <button className="col-span-2 bg-red-600 rounded-sm border-b-4 border-red-900 font-bold uppercase text-white" onClick={() => calculateVals()}>
           =
         </button>
       </section>
