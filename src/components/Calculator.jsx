@@ -8,10 +8,11 @@ function Calculator() {
 
   const updateDisplayVal = (value) => {
     const lastVal = displayVal.slice(-1);
+    const lastValArrayItem = displayVal.split(' ').slice(-1)[0];
     const isOperator = operators.includes(value);
     const isLastValOperator = operators.includes(lastVal);
 
-    if ((isOperator && displayVal === '') || (isLastValOperator && isOperator)) {
+    if ((isOperator && displayVal === '') || (isLastValOperator && isOperator) || (lastValArrayItem.includes('.') && value === '.')) {
         return;
     } 
 
