@@ -13,10 +13,12 @@ function Calculator() {
     const isOperator = operators.includes(value);
     const isLastValOperator = operators.includes(lastVal);
 
+    // Prevent multiple operators and multiple decimals in a value
     if ((isOperator && displayVal === '') || (isLastValOperator && isOperator) || (lastValArrItem.includes('.') && value === '.')) {
         return;
     } 
 
+    // Adds spacing between operators and not decimals
     if ( value !== '.' && lastVal !== '.' && (isLastValOperator || isOperator)) {
       setDisplayVal(displayVal + ' ' + value);
     }
