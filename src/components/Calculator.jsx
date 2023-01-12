@@ -5,14 +5,15 @@ function Calculator() {
   const [answer, setAnswer] = useState("");
 
   const operators = ["/", "*", "+", "-", "."];
+  const isDisplayValEqualToOne = displayVal.length === 1;
 
   const updateDisplayVal = (value) => {
     const lastVal = displayVal.slice(-1);
-    const lastValArrayItem = displayVal.split(' ').slice(-1)[0];
+    const lastValArrItem = isDisplayValEqualToOne ? lastVal : displayVal.split(' ').slice(-1)[0];
     const isOperator = operators.includes(value);
     const isLastValOperator = operators.includes(lastVal);
 
-    if ((isOperator && displayVal === '') || (isLastValOperator && isOperator) || (lastValArrayItem.includes('.') && value === '.')) {
+    if ((isOperator && displayVal === '') || (isLastValOperator && isOperator) || (lastValArrItem.includes('.') && value === '.')) {
         return;
     } 
 
@@ -35,7 +36,7 @@ function Calculator() {
 
   const calculate = (array) => {
 
-    if (displayVal.length === 1) {
+    if (isDisplayValEqualToOne) {
       return;
     }
 
@@ -50,14 +51,12 @@ function Calculator() {
         const dividedVal = beforeVal(divideIndex) / afterVal(divideIndex);
 
         displayValArr.splice((divideIndex - 1), 3, dividedVal);
-        calculate(displayValArr);
       }
 
       if (displayValArr.includes('*')) {
         const multiplyIndex = displayValArr.indexOf('*');
         const multipliedVal = beforeVal(multiplyIndex) * afterVal(multiplyIndex);
         displayValArr.splice((multiplyIndex - 1), 3, multipliedVal);
-        calculate(displayValArr);
       }
 
       if (displayValArr.includes('+')) {
@@ -65,7 +64,6 @@ function Calculator() {
         const addedVal = beforeVal(addIndex) + afterVal(addIndex);
 
         displayValArr.splice((addIndex - 1), 3, addedVal);
-        calculate(displayValArr);
       }
 
       if (displayValArr.includes('-')) {
@@ -73,8 +71,9 @@ function Calculator() {
         const subtractVal = beforeVal(subtractIndex) - afterVal(subtractIndex);
 
         displayValArr.splice((subtractIndex - 1), 3, subtractVal);
-        calculate(displayValArr);
       }
+
+      calculate(displayValArr);
     }
 
     setAnswer(displayVal);
