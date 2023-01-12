@@ -7,12 +7,15 @@ function Calculator() {
   const operators = ["/", "*", "+", "-", "."];
 
   const updateDisplayVal = (value) => {
-    if ((operators.includes(value) && displayVal === '') || (operators.includes(displayVal.slice(-1)) && operators.includes(value))) {
+    const lastVal = displayVal.slice(-1);
+    const isOperator = operators.includes(value);
+    const isLastValOperator = operators.includes(lastVal);
+
+    if ((isOperator && displayVal === '') || (isLastValOperator && isOperator)) {
         return;
     } 
 
-    if ( value !== '.' && displayVal.slice(-1) !== '.' && (operators.includes(value) || operators.includes(displayVal.slice(-1)))) {
-
+    if ( value !== '.' && lastVal !== '.' && (isLastValOperator || isOperator)) {
       setDisplayVal(displayVal + ' ' + value);
     }
     else {
@@ -32,42 +35,47 @@ function Calculator() {
   const calculate = (array) => {
 
     if (displayVal.length === 1) {
-      return
+      return;
     }
 
     const displayValArr = array || displayVal.split(' ');
 
     if (displayValArr.length > 1) {
+      const beforeVal = (index) => Number(displayValArr[index - 1]);
+      const afterVal = (index) => Number(displayValArr[index + 1]);
+
       if (displayValArr.includes('/')) {
         const divideIndex = displayValArr.indexOf('/');
-        const dividedVal = Number(displayValArr[divideIndex - 1]) / Number(displayValArr[divideIndex + 1]);
-        
+        const dividedVal = beforeVal(divideIndex) / afterVal(divideIndex);
+
         displayValArr.splice((divideIndex - 1), 3, dividedVal);
         calculate(displayValArr);
       }
 
       if (displayValArr.includes('*')) {
         const multiplyIndex = displayValArr.indexOf('*');
-        const multipliedVal = Number(displayValArr[multiplyIndex - 1]) * Number(displayValArr[multiplyIndex + 1]);
-        displayValArr.splice((multiplyIndex - 1), 3, multipliedVal)
-
+        const multipliedVal = beforeVal(multiplyIndex) * afterVal(multiplyIndex);
+        displayValArr.splice((multiplyIndex - 1), 3, multipliedVal);
         calculate(displayValArr);
       }
 
       if (displayValArr.includes('+')) {
         const addIndex = displayValArr.indexOf('+');
-        const addedVal = Number(displayValArr[addIndex - 1]) + Number(displayValArr[addIndex + 1]);
+        const addedVal = beforeVal(addIndex) + afterVal(addIndex);
+
         displayValArr.splice((addIndex - 1), 3, addedVal);
         calculate(displayValArr);
       }
 
       if (displayValArr.includes('-')) {
         const subtractIndex = displayValArr.indexOf('-');
-        const subtractVal = Number(displayValArr[subtractIndex - 1]) - Number(displayValArr[subtractIndex + 1]);
+        const subtractVal = beforeVal(subtractIndex) - afterVal(subtractIndex);
+
         displayValArr.splice((subtractIndex - 1), 3, subtractVal);
         calculate(displayValArr);
       }
     }
+
     setAnswer(displayVal);
     setDisplayVal(displayValArr);
   }
