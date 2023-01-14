@@ -50,65 +50,65 @@ function Calculator() {
   }
 
   return (
-    <main className="relative h-1/2 w-1/3 bg-sky-900 p-4">
-      <section className="rounded-md bg-slate-900 text-white px-6 py-4 mb-2 w-full">
+    <main className="relative h-1/2 w-1/3 bg-theme-calculator-main p-4">
+      <section className="rounded-md bg-theme-calculator-input text-theme-primary px-6 py-4 mb-2 w-full">
         <p className="w-full mb-2 text-xs">{answer || "0"}</p>
         <p>{displayVal || "0"}</p>
       </section>
-      <section className="bg-slate-900 p-4 rounded-md grid grid-cols-4 gap-2">
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('7')}>
+      <section className="bg-theme-calculator-input p-4 rounded-md grid grid-cols-4 gap-2">
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('7')}>
           7
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('8')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('8')}>
           8
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('9')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('9')}>
           9
         </button>
-        <button className="bg-slate-500 rounded-sm border-b-4 border-slate-600 font-bold uppercase text-white" onClick={() => deleteLastValue()}>
+        <button className="bg-theme-button-secondary rounded-sm border-b-4 border-theme-button-secondary font-bold uppercase text-theme-primary" onClick={() => deleteLastValue()}>
           del
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('4')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('4')}>
           4
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('5')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('5')}>
           5
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('6')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('6')}>
           6
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('+')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('+')}>
           +
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('1')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('1')}>
           1
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('2')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('2')}>
           2
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('3')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('3')}>
           3
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('-')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('-')}>
           -
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('.')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('.')}>
           .
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('0')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('0')}>
           0
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('/')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('/')}>
           /
         </button>
-        <button className="bg-zinc-300 rounded-sm border-b-4 border-zinc-400 text-zinc-800" onClick={() => updateDisplayVal('*')}>
+        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('*')}>
           *
         </button>
 
-        <button className="col-span-2 bg-slate-500 rounded-sm border-b-4 border-slate-600 font-bold uppercase text-white" onClick={() => reset()}>
+        <button className="col-span-2 bg-theme-button-secondary rounded-sm border-b-4 border-theme-button-secondary font-bold uppercase text-theme-primary" onClick={() => reset()}>
           reset
         </button>
-        <button className="col-span-2 bg-red-600 rounded-sm border-b-4 border-red-900 font-bold uppercase text-white" onClick={() => calculateVals()}>
+        <button className="col-span-2 bg-theme-button-tertiary rounded-sm border-b-4 border-theme-button-tertiary font-bold uppercase text-theme-primary" onClick={() => calculateVals()}>
           =
         </button>
       </section>

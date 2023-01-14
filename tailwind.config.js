@@ -18,15 +18,24 @@ module.exports = {
       backgroundColor: {
         theme: {
           fill: withOpacity('--color-fill'),
+          'button-primary': withOpacity('--color-button-primary-fill'),
+          'button-secondary': withOpacity('--color-button-secondary-fill'),
+          'button-tertiary': withOpacity('--color-button-tertiary-fill'),
+          'calculator-input': withOpacity('--color-calculator-input-fill'),
+          'calculator-main': withOpacity('--color-calculator-main-fill')
         }
       },
       borderColor: {
-        theme: {}
+        theme: {
+          'button-primary': withOpacity('--color-button-primary-border'),
+          'button-secondary': withOpacity('--color-button-secondary-border'),
+          'button-tertiary': withOpacity('--color-button-tertiary-border')
+        }
       },
       textColor: {
         theme: {
-          base: withOpacity('--color-text-base'),
-          inverted: withOpacity('--color-text-inverted'),
+          primary: withOpacity('--color-text-primary'),
+          'button-primary': withOpacity('--color-button-primary-text'),
         }
       }
     },

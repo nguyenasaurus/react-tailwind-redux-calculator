@@ -13,7 +13,7 @@ function ThemeChooser() {
 
   return (
     <nav className="flex">
-      <h3 className="text-sm mr-3 text-theme-base">Theme</h3>
+      <h3 className="text-sm mr-3 text-theme-primary">Theme</h3>
       <input
         onChange={handleThemeChange}
         type="range"
