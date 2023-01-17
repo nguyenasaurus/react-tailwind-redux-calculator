@@ -1,5 +1,6 @@
 import { useState } from "react";
 import calculate from "../utils/calculate";
+import Button from "./Button";
 
 function Calculator() {
   const [displayVal, setDisplayVal] = useState("");
@@ -56,61 +57,60 @@ function Calculator() {
         <p>{displayVal || "0"}</p>
       </section>
       <section className="bg-theme-calculator-input p-4 rounded-md grid grid-cols-4 gap-2">
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('7')}>
+        <Button type="primary" onClick={() => updateDisplayVal('7')}>
           7
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('8')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('8')}>
           8
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('9')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('9')}>
           9
-        </button>
-        <button className="bg-theme-button-secondary rounded-sm border-b-4 border-theme-button-secondary font-bold uppercase text-theme-primary" onClick={() => deleteLastValue()}>
+        </Button>
+        <Button type="secondary" className="uppercase font-bold" onClick={deleteLastValue}>
           del
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('4')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('4')}>
           4
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('5')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('5')}>
           5
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('6')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('6')}>
           6
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('+')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('+')}>
           +
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('1')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('1')}>
           1
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('2')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('2')}>
           2
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('3')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('3')}>
           3
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('-')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('-')}>
           -
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('.')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('.')}>
           .
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('0')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('0')}>
           0
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('/')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('/')}>
           /
-        </button>
-        <button className="bg-theme-button-primary rounded-sm border-b-4 border-theme-button-primary text-theme-button-primary" onClick={() => updateDisplayVal('*')}>
+        </Button>
+        <Button type="primary" onClick={() => updateDisplayVal('*')}>
           *
-        </button>
-
-        <button className="col-span-2 bg-theme-button-secondary rounded-sm border-b-4 border-theme-button-secondary font-bold uppercase text-theme-primary" onClick={() => reset()}>
+        </Button>
+        <Button type="secondary" className="col-span-2 font-bold uppercase" onClick={reset}>
           reset
-        </button>
-        <button className="col-span-2 bg-theme-button-tertiary rounded-sm border-b-4 border-theme-button-tertiary font-bold uppercase text-theme-primary" onClick={() => calculateVals()}>
+        </Button>
+        <Button type="tertiary" className="col-span-2 font-bold" onClick={calculateVals}>
           =
-        </button>
+        </Button>
       </section>
     </main>
   );
