@@ -58,7 +58,7 @@ function Calculator() {
   return (
     <GridWrapper>
       <main className="col-span-1 sm:col-span-6 sm:col-start-4  lg:col-span-4 lg:col-start-5 w-full h-full relative bg-theme-calculator-main p-4 rounded-md">
-        <section className="rounded-md bg-theme-calculator-input text-theme-primary px-6 py-4 mb-2 w-full">
+        <section className="rounded-md bg-theme-calculator-input text-theme-primary px-6 py-4 mb-2 w-full text-right">
           <p className="w-full mb-2 text-xs">{answer || "0"}</p>
           <p>{displayVal || "0"}</p>
         </section>
