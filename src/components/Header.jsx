@@ -1,8 +1,8 @@
 
 function Header() {
   return (
-    <header>
-      <h1 className="text-theme-primary text-3xl font-extrabold">Calculator</h1>
+    <header className="h-20 flex items-center justify-center">
+      <h1 className="text-theme-primary text-3xl font-extrabold text-center">Calculator</h1>
     </header>
   );
 }

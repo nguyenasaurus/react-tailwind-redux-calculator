@@ -12,16 +12,23 @@ function ThemeChooser() {
   };
 
   return (
-    <nav className="flex">
-      <h3 className="text-sm mr-3 text-theme-primary">Theme</h3>
-      <input
-        onChange={handleThemeChange}
-        type="range"
-        min="1"
-        max="3"
-        value={themeVal}
-        step="1"
-      />
+    <nav className="flex justify-end px-6 md:px-12">
+      <div className="flex flex-col items-center">
+        <h3 className="text-sm text-theme-primary mb-2">Choose a theme!</h3>
+        <input
+          onChange={handleThemeChange}
+          type="range"
+          min="1"
+          max="3"
+          value={themeVal}
+          step="1"
+        />
+        <ul className="flex justify-between w-full text-theme-primary text-sm">
+          <li>Dark</li>
+          <li>Light</li>
+          <li>Fun</li>
+        </ul>
+      </div>
     </nav>
   );
 }
