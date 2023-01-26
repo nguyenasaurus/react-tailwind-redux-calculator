@@ -22,7 +22,7 @@ module.exports = {
           'button-secondary': withOpacity('--color-button-secondary-fill'),
           'button-tertiary': withOpacity('--color-button-tertiary-fill'),
           'calculator-input': withOpacity('--color-calculator-input-fill'),
-          'calculator-main': withOpacity('--color-calculator-main-fill')
+          'main-fill': withOpacity('--color-main-fill')
         }
       },
       borderColor: {
