@@ -1,7 +1,7 @@
 import { useState } from "react";
 import calculate from "../utils/calculate";
-import Button from "./Button";
-import GridWrapper from "./GridWrapper";
+import Button from "./ui/Button";
+import GridWrapper from "./layout/GridWrapper";
 
 function Calculator() {
   const [displayVal, setDisplayVal] = useState("");
