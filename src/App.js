@@ -1,6 +1,6 @@
 import Calculator from "./components/Calculator";
 import Header from "./components/Header";
-import PageWrapper from "./components/PageWrapper";
+import PageWrapper from "./components/layout/PageWrapper";
 import ThemeChooser from "./components/ThemeChooser";
 
 function App() {
